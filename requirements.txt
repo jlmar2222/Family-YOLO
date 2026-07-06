@@ -2,5 +2,7 @@ torch
 pandas
 scikit-learn
 tqdm
+numpy
+Pillow
 
 
