@@ -31,12 +31,12 @@ class VocDataset(Dataset):
         filename = self.image_names[idx]
         image_df = self.df[self.df['file_name'] == filename]
 
-        image_path = image_df.iloc[0]['image_path']
-
-        image = np.array(Image.open(image_path))     
+        image_path = image_df.iloc[0]['image_path']    
         
         if not os.path.exists(image_path):
             raise FileNotFoundError(f"Image not found: {image_path}")  
+
+        image = np.array(Image.open(image_path)) 
 
         bboxes = image_df[['x_min', 'y_min', 'x_max', 'y_max']].values
         class_labels = image_df['class'].values
